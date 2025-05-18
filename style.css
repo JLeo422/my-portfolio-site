@@ -47,20 +47,23 @@ footer {
 }
 
 /* ---- GAMERDY Launch Button ---- */
-.play-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #61dafb;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
+.custom-game-button {
+  width: 450px;
+  height: 150px;
+  background-image: url("images/Gamerdy play button.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+  margin: 30px auto;
 }
 
-.play-button:hover {
-  background-color: #21a1f1;
-  color: #fff;
+.custom-game-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
+
