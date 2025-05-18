@@ -45,3 +45,22 @@ footer {
   padding: 20px;
   font-size: 0.9em;
 }
+
+/* ---- GAMERDY Launch Button ---- */
+.play-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #61dafb;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: #21a1f1;
+  color: #fff;
+}
