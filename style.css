@@ -54,7 +54,8 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: #888;
+  border: none;
+  overflow: hidden;
   border-radius: 10% / 50%;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
