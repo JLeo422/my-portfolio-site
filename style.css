@@ -55,17 +55,13 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   border: none;
-  overflow: hidden;
-  border-radius: 50% 20% / 10% 40%;
-  padding: 20px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: block;
   margin: 20px auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .custom-game-button:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
