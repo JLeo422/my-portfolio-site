@@ -65,3 +65,20 @@ footer {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
+
+/* ---- Launch Button for Tools ---- */
+.custom-launch-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.custom-launch-button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}

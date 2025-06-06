@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -41,31 +40,18 @@
         <div class="custom-game-button" role="button" aria-label="Play GAMERDY"></div>
       </a>
     </section>
-
-  <!-- P2 -->
-    <section id="pipe-sizing-tool">
+    <!-- In the Projects section -->
+    <section id="pipe-tool">
       <h2>Project 2 🧮 Pipe Sizing Tool</h2>
       <p>
-        A handy web calculator built for civil engineers to determine proper pipe diameter using Manning's equation.
+        A web-based civil engineering calculator to help select stormwater pipe sizes using Manning’s formula.
       </p>
 
-      <form id="pipeForm">
-        <label>Flow rate (Q) [cfs]: <input type="number" id="flow" step="0.01" required /></label><br>
-        <label>Slope (S) [ft/ft]: <input type="number" id="slope" step="0.0001" required /></label><br>
-        <label>Manning's n:
-          <select id="n">
-            <option value="0.013">Concrete (0.013)</option>
-            <option value="0.015">PVC (0.015)</option>
-            <option value="0.012">Steel (0.012)</option>
-          </select>
-        </label><br>
-        <button type="submit">Calculate</button>
-      </form>
-
-      <div id="results"></div>
+      <a href="pipe-tool.html">
+        <button class="custom-launch-button">Launch Tool</button>
+      </a>
     </section>
   </main>
-
 
   <!-- Footer -->
   <footer>
