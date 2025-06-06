@@ -82,3 +82,10 @@ footer {
   background-color: #005fa3;
   transform: scale(1.05);
 }
+
+.centered-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
