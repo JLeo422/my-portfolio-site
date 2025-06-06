@@ -1,30 +1,50 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pipe Sizing Tool</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>🛠 Pipe Sizing Tool</h1>
+// Pipe Sizing and Runoff Calculator
 
-  <form id="pipeForm">
-    <label>Flow rate (Q) [cfs]: <input type="number" id="flowRate" step="0.01" required /></label><br>
-    <label>Slope (S) [ft/ft]: <input type="number" id="slope" step="0.0001" required /></label><br>
-    <label>Manning's n:
-      <select id="manningN">
-        <option value="0.013">Concrete (0.013)</option>
-        <option value="0.015">PVC (0.015)</option>
-        <option value="0.012">Steel (0.012)</option>
-      </select>
-    </label><br>
-    <label>Pipe Diameter [in]: <input type="number" id="diameter" required /></label><br>
-    <button type="submit">Calculate</button>
-  </form>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("pipeForm");
+  const resultDiv = document.getElementById("results");
 
-  <div id="results"></div>
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  <script src="script.js"></script>
-</body>
-</html>
+    const flow = parseFloat(document.getElementById("flow").value);
+    const slope = parseFloat(document.getElementById("slope").value);
+    const n = parseFloat(document.getElementById("n").value);
+
+    if (isNaN(flow) || isNaN(slope) || isNaN(n) || flow <= 0 || slope <= 0 || n <= 0) {
+      resultDiv.innerHTML = "<p style='color:red;'>Please enter valid positive numbers for all fields.</p>";
+      return;
+    }
+
+    const diametersInches = [6, 8, 10, 12, 15, 18, 21, 24, 30, 36];
+    let selected = null;
+
+    for (let dInch of diametersInches) {
+      const dFeet = dInch / 12;
+      const area = Math.PI * Math.pow(dFeet, 2) / 4;
+      const rHydraulic = dFeet / 4;
+      const capacity = (1 / n) * area * Math.pow(rHydraulic, 2 / 3) * Math.sqrt(slope);
+
+      if (capacity >= flow) {
+        selected = {
+          diameter: dInch,
+          capacity: capacity.toFixed(2),
+          area: area.toFixed(3),
+          velocity: (flow / area).toFixed(2)
+        };
+        break;
+      }
+    }
+
+    if (selected) {
+      resultDiv.innerHTML = `
+        <h3>✅ Suggested Pipe Size:</h3>
+        <p><strong>Diameter:</strong> ${selected.diameter}"</p>
+        <p><strong>Flow Capacity:</strong> ${selected.capacity} cfs</p>
+        <p><strong>Velocity:</strong> ${selected.velocity} ft/s</p>
+      `;
+    } else {
+      resultDiv.innerHTML = "<p style='color:red;'>❌ No suitable pipe size found. Try adjusting the inputs.</p>";
+    }
+  });
+});
