@@ -21,7 +21,9 @@
           <option value="0.012">Steel (0.012)</option>
         </select>
       </label><br>
-      <label>Pipe Diameter [in]: <input type="number" id="diameter" required /></label><br>
+      <label>Design Flow Depth [% of Full]: 
+      <input type="number" id="percentFull" min="10" max="100" step="5" value="100" required />
+      </label><br>
       <button type="submit">Calculate</button>
     </form>
 
